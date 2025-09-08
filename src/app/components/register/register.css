@@ -1,0 +1,176 @@
+
+ .body {
+  margin: 0;
+  background: url('https://i.pinimg.com/1200x/52/f5/ee/52f5ee70087620e9c7476cedf304dcad.jpg ') no-repeat center center;
+  /* https://i.pinimg.com/1200x/52/f5/ee/52f5ee70087620e9c7476cedf304dcad.jpg */
+  background-size: cover;
+  color: var(--white);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  height: 100vh;
+}
+
+
+
+  #titulo{
+    font-family: 'spaceport';
+    color: rgb(255, 255, 255);
+    letter-spacing: 1px;
+
+  }
+
+  /* Fondo con “pista” y ruedas decorativas */
+  .scene{
+    position:fixed; inset:0; pointer-events:none; z-index:0;
+  }
+  .scene:before, .scene:after{
+    content:""; position:absolute; inset:0;
+  }
+
+
+  /* Tarjeta */
+  .card{
+    position:relative; z-index:1;
+    /* width:min(92vw, 420px); */
+    border-radius:24px;
+    width: 30%;
+    padding:28px 28px 26px;
+    background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255, 255, 255, 0.554));
+    background:var(--card);
+    border:1px solid var(--stroke);
+    backdrop-filter: blur(10px) saturate(120%);
+    box-shadow: var(--sombra)
+  }
+
+  .imagen-gift{
+    filter: brightness(0%) invert(1);
+    /* filter: invert(1); */
+  }
+
+  /* Header con marca y bici */
+  .brand{
+    display:flex; align-items:center; gap:14px; margin-bottom:18px;
+
+  }
+  .brand-logo{
+    width:44px; height:44px; border-radius:50%;
+    background:
+      radial-gradient(circle at 50% 50%, transparent 21px, var(--orange) 21px 22px, transparent 22px),
+      conic-gradient(from 0deg, var(--orange-2), var(--orange));
+    position:relative; box-shadow:0 6px 16px rgba(255,122,24,.35);
+  }
+  /* icono de bicicleta (SVG minimal) */
+  .brand .title{
+    margin-left:auto; font-weight:700; letter-spacing:.4px;
+    text-transform:none; font-size:12px; color:var(--muted);
+  }
+
+  h1{
+    margin:6px 0 2px; font-weight:800; font-size:28px; letter-spacing:.2px;
+  }
+  p.sub{
+    margin:0 0 18px; color:var(--muted); font-size:14px;
+  }
+
+  /* Form */
+  form{display:grid; gap:14px; margin-top:6px}
+  .field{
+    display:grid; gap:8px;
+  }
+  label{
+    font-size:12px; color:var(--muted); letter-spacing:.2px;
+  }
+  .input{
+    appearance:none; width:100%;
+    padding:12px 14px 12px 44px;
+    border-radius:14px;
+    border:1px solid var(--stroke);
+    background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+    color:var(--white);
+    outline:none;
+    transition:border .2s ease, box-shadow .2s ease, transform .06s ease;
+    position:relative;
+  }
+
+  .input::placeholder{
+    color: rgba(255, 255, 255, 0.568);
+  }
+
+  .input:hover{border-color:rgba(255,255,255,.22)}
+  .input:focus{
+    border-color:rgba(255,122,24,.6);
+    box-shadow:0 0 0 4px rgba(255,122,24,.15), inset 0 0 0 1px rgba(255,122,24,.2);
+  }
+
+  /* Iconos de campo (puro CSS) */
+  .field.icon{position:relative}
+  .field.icon .i{
+    position:absolute; left:12px; top:50%; translate:0 -50%;
+    width:18px; height:18px; opacity:.9;
+    background:
+      radial-gradient(circle at 50% 50%, var(--orange) 0 3px, transparent 4px) 0 0/100% 100% no-repeat;
+    mask:
+      radial-gradient(circle 7px at 50% 35%, #000 98%, transparent 100%) top center / 18px 18px no-repeat,
+      linear-gradient(#000 0 0) bottom center / 12px 3px no-repeat;
+  }
+  .field.icon.pass .i{
+    mask:
+      linear-gradient(#000 0 0) 0 7px/18px 4px no-repeat,
+      radial-gradient(8px 8px at 6px 6px,#000 98%,transparent 100%) left top / 12px 12px no-repeat,
+      radial-gradient(8px 8px at 12px 6px,#000 98%,transparent 100%) right top / 12px 12px no-repeat;
+  }
+
+  .row{
+    display:flex; justify-content:space-between; align-items:center; gap:10px;
+    margin-top:2px;
+  }
+  .link{
+    color:var(--orange); font-size:12px; text-decoration:none;
+  }
+  .link:hover{ text-decoration:underline }
+
+  /* Botón */
+  .btn{
+    cursor:pointer; user-select:none;
+    padding:12px 16px; border-radius:14px; border:0;
+    color:#0a0a0a; font-weight:700; letter-spacing:.2px;
+    background:linear-gradient(90deg, var(--orange), var(--orange-2));
+    box-shadow:0 10px 24px rgba(255,122,24,.35);
+    transition: transform .06s ease, filter .2s ease, box-shadow .2s ease;
+    font-family: 'spaceport';
+     letter-spacing: 1px;
+  }
+  .btn:hover{filter:saturate(1.05) brightness(1.03)}
+  .btn:active{transform:translateY(1px)}
+
+  /* Separador */
+  .sep{display:flex; align-items:center; gap:12px; margin:10px 0}
+  .sep span{font-size:11px; color:var(--muted)}
+  .sep::before, .sep::after{
+    content:""; flex:1; height:1px; background:var(--stroke);
+  }
+
+  /* Botón outline */
+  .btn-outline{
+    width:100%; padding:10px 14px; border-radius:12px; background:transparent;
+    color:var(--white); border:1px solid var(--stroke); cursor:pointer; font-weight:600;
+    transition:border .2s ease, box-shadow .2s ease;
+    font-family: 'spaceport';
+    letter-spacing: 2px;
+  }
+  .btn-outline:hover{border-color:rgba(255,255,255,.25)}
+  .btn-outline:focus{box-shadow:0 0 0 4px rgba(255,255,255,.08); outline:none}
+
+  /* Footer */
+  .foot{
+    margin-top:14px; display:flex; justify-content:center; gap:6px; color:var(--muted); font-size:12px;
+  }
+  .foot a{color:var(--orange); text-decoration:none}
+  .foot a:hover{text-decoration:underline}
+
+  /* Responsivo */
+  @media (max-width: 420px){
+    .brand svg{width:100px}
+    h1{font-size:24px}
+  }

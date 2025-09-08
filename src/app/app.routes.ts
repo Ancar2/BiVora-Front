@@ -4,8 +4,16 @@ import { Dashboard } from './components/dashboard/dashboard';
 import { Inicio } from './components/dashboard/inicio/inicio';
 import { Estaciones } from './components/dashboard/estaciones/estaciones';
 import { Alquiler } from './components/alquiler/alquiler';
+import { Register } from './components/register/register';
+import { Administracion } from './components/administracion/administracion';
+import { InicioAdmin } from './components/administracion/inicio-admin/inicio-admin';
 
 export const routes: Routes = [
+  {
+    path: 'register',
+    component: Register
+  },
+
   {
     path: 'login',
     component: Login
@@ -33,6 +41,23 @@ export const routes: Routes = [
         component: Alquiler
       },
     ],
-  }
+  },
+  {
+    path: 'administracion',
+    component: Administracion,
+    children: [
+      {
+        path: '',
+        redirectTo: 'inicio',
+        pathMatch: 'full'
+      },
+      {
+        path: 'inicio',
+        component: InicioAdmin
+      },
+    ]
+  },
+
+
 
 ];

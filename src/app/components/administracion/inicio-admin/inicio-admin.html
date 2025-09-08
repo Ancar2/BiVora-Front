@@ -1,0 +1,37 @@
+  <main class="main-content">
+    <header class="header">
+      <h1>Panel de Administración</h1>
+    </header>
+
+    <section class="cards">
+      <div class="card">
+        <h3> Bicicletas</h3>
+        <p>{{bicisDisponibles}} <br> disponibles</p>
+      </div>
+      <div class="card">
+        <h3> Estaciones</h3>
+        <p>{{estacionesActivas}} <br> activas</p>
+      </div>
+      <div class="card">
+        <h3> Clientes</h3>
+        <p>{{usersActivos}} <br> Usuarios Activos</p>
+      </div>
+      <div class="card">
+        <h3> Ventas Totales</h3>
+        <p><span>$</span>{{formatNumber(alquilerTotal)}}</p>
+      </div>
+    </section>
+
+
+    <section class="chart">
+      <h2> Ventas por Mes</h2>
+      <div class="chart-bars">
+        <div class="bar" style="--value:70%">Ene</div>
+        <div class="bar" style="--value:50%">Feb</div>
+        <div class="bar" style="--value:80%">Mar</div>
+        <div class="bar" style="--value:65%">Abr</div>
+        <div class="bar" style="--value:90%">May</div>
+        <div class="bar" style="--value:40%">Jun</div>
+      </div>
+    </section>
+  </main>

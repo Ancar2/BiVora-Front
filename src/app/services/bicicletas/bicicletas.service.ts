@@ -12,4 +12,8 @@ export class BicicletasService {
   getbici(estacion:any){
     return this.http.get(`${this.apiUrl}/bicicletas?estacion=${estacion}`)
   }
+
+  getAllBici(){
+    return this.http.get(`${this.apiUrl}/bicicletas`)
+  }
 }

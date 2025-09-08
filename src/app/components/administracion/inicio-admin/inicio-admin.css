@@ -1,0 +1,105 @@
+/* Main */
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  width: 87dvw;
+
+}
+
+.header h1 {
+  color: #f4f6f7;
+  margin-bottom: 2rem;
+}
+
+/* Cards */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  padding: 1.5rem;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: 0.3s ease;
+  box-shadow:
+    0 10px 20px rgb(0, 0, 0),
+    0 10px 30px rgba(0, 0, 0, 0.3),
+    inset 0 0 10px rgba(255, 255, 255, 0.05);
+  max-width: 40rem;
+  width: 40rem;
+  min-width: 2rem;
+  height: 19rem;
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow:
+    0 15px 190px rgb(0, 0, 0),
+    0 8px 190px rgb(0, 0, 0),
+    inset 0 0 15px rgba(255, 255, 255, 0.08);
+}
+
+
+.card h3 {
+  color: #eb5e00;
+  margin-bottom: 1rem;
+}
+
+.card p {
+  font-size: 1.2rem;
+  color: #ddd;
+  text-align: center;
+  margin-top: 4rem;
+}
+
+/* Chart */
+.chart {
+  margin-top: 3rem;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 15px;
+}
+
+.chart h2 {
+  color: #fefefe;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.chart-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+  height: 200px;
+  justify-content: space-around;
+}
+
+.bar {
+  flex: 1;
+  background: linear-gradient(180deg, #eb5e00, #ffb347);
+  border-radius: 8px;
+  position: relative;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  padding-top: 5px;
+  transition: 0.4s;
+  height: var(--value);
+}
+
+.bar:hover {
+  background: linear-gradient(180deg, #00aaff, #0077cc);
+  transform: scale(1.05);
+}
+
+span{
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.5rem;
+}

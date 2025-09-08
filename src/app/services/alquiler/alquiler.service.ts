@@ -40,4 +40,8 @@ export class AlquilerService {
 
      return this.http.put(`${this.apiUrl}/alquiler/finalizar/${idAlquiler}`, body,{ headers })
   }
+
+  getAlquiler(){
+    return this.http.get(`${this.apiUrl}/alquiler`)
+  }
 }

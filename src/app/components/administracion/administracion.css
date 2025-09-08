@@ -1,0 +1,79 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Spaceport";
+  letter-spacing: 2px;
+
+}
+
+.body {
+  margin: 0;
+  background: url('https://images8.alphacoders.com/139/thumb-1920-1392107.png') no-repeat center center;
+  /* https://i.pinimg.com/1200x/52/f5/ee/52f5ee70087620e9c7476cedf304dcad.jpg */
+  background-size: cover;
+  display: grid;
+  place-items: center;
+  overflow: scroll;
+  height: 100vh;
+}
+
+
+.dashboard {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+.sidebar {
+  position: fixed;               /* ✅ lo fija en la pantalla */
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100vh;                 /* ocupa toda la altura */
+
+  background: rgba(6, 66, 218, 0.221); /* blanco transparente */
+  backdrop-filter: blur(4px);           /* desenfoque */
+  -webkit-backdrop-filter: blur(10px);  /* soporte Safari */
+  border-radius: 0 12px 12px 0;         /* solo borde derecho redondeado */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+}
+
+
+.logo {
+  color: #eb5e00;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.menu {
+  list-style: none;
+}
+
+.menu li {
+  margin: 1rem 0;
+}
+
+.menu a {
+  text-decoration: none;
+  color: white;
+  padding: 0.8rem 1rem;
+  display: block;
+  border-radius: 10px;
+  transition: 0.3s;
+  letter-spacing: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.375);
+}
+
+.menu a:hover {
+  background: rgba(255, 127, 17, 0.2);
+  color: #eb5e00;
+}
+
+.contenido{
+  margin-left: 15rem;
+}
