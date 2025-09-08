@@ -1,0 +1,47 @@
+<div class="body">
+<div class="d-flex text-center align-content-center align-items-center position-fixed top-0 start-0">
+<img class="img-perfil" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg7X2XqVescKuRtTvZiEw-c83iNb-p0gRnctja7GqgJa9XUA_CtBWuR0s_g3ZhoHM7MX8229Jo1xHyU3eBFWUy54kOO7tGyVvYsyV4bL2lAIJ-O34Yd_Zfm7WpNoHYIx4tTGN19-YJbKdVzIaEV4IcPQNwDCv6KXDxU6GCIslLZ7LnxHKWtiKo7Lf1_AZCs/s972/Fotos%20De%20Perfil%20Para%20Whatsapp%20Aesthetic.jpg" alt="">
+<p class="nombre">ANDrES CArDENAS</p>
+</div>
+
+
+<input type="checkbox" id="main-navigation-toggle" class="btn btn--close" title="Toggle main navigation" />
+<label for="main-navigation-toggle">
+  <span></span>
+</label>
+
+<nav id="main-navigation"   class="nav-main">
+  <ul class="menu">
+    <li class="menu__item">
+      <a class="menu__link" routerLink="/dashboard/inicio"  (click)="closeMenu()"  >INICIO</a>
+    </li>
+    <li class="menu__item">
+      <a class="menu__link" routerLink="/dashboard/perfil" (click)="closeMenu()"  >PErFIL</a>
+    </li>
+    <li class="menu__item">
+      <a class="menu__link" routerLink="/dashboard/estaciones" (click)="closeMenu()"  >EStACIONES</a>
+    </li>
+    <li class="menu__item">
+      <a class="menu__link" routerLink="/dashboard/alquiler" (click)="closeMenu()" >MIS ALQUILErES</a>
+      <ul class="submenu">
+        <li class="menu__item">
+          <a class="menu__link" >Print Design</a>
+        </li>
+        <li class="menu__item">
+          <a class="menu__link" >Web Design</a>
+        </li>
+        <li class="menu__item">
+          <a class="menu__link" >Mobile App Development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="menu__item">
+      <a (click)="logOut()" class="menu__link" routerLink="/login" >SALIr</a>
+    </li>
+  </ul>
+</nav>
+
+<main class="page-container">
+  <router-outlet></router-outlet>
+</main>
+</div>

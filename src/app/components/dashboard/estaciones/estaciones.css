@@ -1,0 +1,460 @@
+.card-effect {
+  perspective: 1000px;
+}
+
+.card_image-g{
+  /* height: 10%; */
+}
+
+.card-inner {
+  --card-bg: #1331629e;
+  --card-accent: #fa4c17;
+  --card-text: #ffffff;
+  --card-shadow: 0 12px 24px rgba(199, 198, 198, 0.603);
+  width: 310px;
+  height: 290px;
+  background: var(--card-bg);
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+    box-shadow 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: var(--card-shadow);
+  border: 1px solid rgba(236, 82, 5, 0.396);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, sans-serif;
+  transform-style: preserve-3d; /* Required for 3D effects */
+}
+
+.card-inner-g{
+ --card-bg: #1331629e;
+  --card-accent: #fa4c17;
+  --card-text: #ffffff;
+  --card-shadow: 0 12px 24px rgba(199, 198, 198, 0.603);
+  width: 100%;
+  height: 100%;
+  background: var(--card-bg);
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+    box-shadow 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: var(--card-shadow);
+  border: 1px solid rgba(236, 82, 5, 0.396);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, sans-serif;
+  /* transform-style: preserve-3d;/ Required for 3D effects */
+
+}
+
+.card-inner:hover {
+  transform: rotateY(10deg) rotateX(10deg) translateZ(10px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+}
+
+.card-inner-g:hover {
+  /* transform: rotateY(10deg) rotateX(10deg) translateZ(10px); */
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+}
+
+.card__liquid {
+  position: absolute;
+  top: -80px;
+  left: 0;
+  width: 300px;
+  height: 200px;
+  background: #4a90e2; /* Liquid color */
+  border-radius: 50%;
+  transform: translateZ(-80px); /* Position behind the card */
+  filter: blur(80px);
+  transition:
+    transform 0.7s cubic-bezier(0.36, 0, 0.66, -0.56),
+    opacity 0.3s ease-in-out;
+  opacity: 0; /* Initially hidden */
+}
+
+.card-inner:hover .card__liquid {
+  transform: translateZ(-50px) translateY(30px) translateX(-20px) rotate(-20deg)
+    scale(1.2);
+  opacity: 0.7; /* Fade in on hover */
+}
+
+.card__shine {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 30%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(255, 255, 255, 0.1) 70%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.card-inner:hover .card__shine {
+  opacity: 1;
+  animation: shine-effect 2s infinite linear;
+}
+
+.card__glow {
+  position: absolute;
+  inset: -15px;
+  background: radial-gradient(
+    circle at 50% 0%,
+    rgba(255, 138, 101, 0.4) 0%,
+    rgba(255, 138, 101, 0) 60%
+  );
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+}
+
+.card-inner:hover .card__glow {
+  opacity: 1;
+}
+
+.card__content {
+  padding: 1.5em;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  position: relative;
+  z-index: 2;
+}
+
+.card__badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #f9a8250f;
+  color: white;
+  padding: 0.3em 0.6em;
+  border-radius: 999px;
+  font-size: 0.8em;
+  font-weight: 600;
+  transform: scale(0.7);
+  opacity: 0;
+  transition: all 0.5s ease 0.2s;
+}
+
+.card-inner:hover .card__badge {
+  transform: scale(1);
+  opacity: 1;
+  z-index: 1;
+}
+
+.card__image {
+  width: 100%;
+  height: 120px;
+  border-radius: 15px;
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.823);
+}
+
+.card-inner:hover .card__image {
+  transform: translateY(-8px) scale(1.05);
+}
+
+.card__image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+      circle at 20% 80%,
+      rgba(255, 255, 255, 0.15) 0%,
+      transparent 40%
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(255, 255, 255, 0.05) 0px,
+      rgba(255, 255, 255, 0.05) 3px,
+      transparent 3px,
+      transparent 6px
+    );
+  opacity: 0.6;
+}
+
+.card__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.card__title {
+  color: var(--card-text);
+  font-size: 0.9em;
+  margin: 0;
+  font-weight: 700;
+  transition:
+    color 0.4s ease-in-out,
+    transform 0.4s ease-in-out;
+  font-family: "Spaceport";
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.card-inner:hover .card__title {
+  color: var(--card-accent);
+  transform: translateX(3px);
+}
+
+.card__description {
+  color: var(--card-text);
+  font-size: 0.85em;
+  margin: 0;
+  opacity: 0.8;
+  transition:
+    opacity 0.4s ease-in-out,
+    transform 0.4s ease-in-out;
+    letter-spacing: 1px;
+}
+
+.card-inner:hover .card__description {
+  opacity: 1;
+  transform: translateX(3px);
+}
+
+.card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.card__price {
+  color: var(--card-text);
+  font-weight: 700;
+  font-size: 1.1em;
+  transition:
+    color 0.4s ease-in-out,
+    transform 0.4s ease-in-out;
+    letter-spacing: 2px;
+}
+
+.card-inner:hover .card__price {
+  color: var(--card-accent);
+  transform: translateX(3px);
+}
+
+.card__button {
+  width: 32px;
+  height: 32px;
+  background: var(--card-accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  transition:
+    transform 0.4s ease-in-out,
+    box-shadow 0.4s ease-in-out;
+  transform: scale(0.85);
+}
+
+.card__button-g {
+  width: 50%;
+  height: 60px;
+  background: var(--card-accent);
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  transition:
+    transform 0.4s ease-in-out,
+    box-shadow 0.4s ease-in-out;
+  transform: scale(0.85);
+  font-size: 2rem;
+  font-family: "Spaceport";
+  letter-spacing: 2px;
+}
+
+.card-inner:hover .card__button {
+  transform: scale(1);
+  box-shadow: 0 0 0 5px rgba(255, 138, 101, 0.3);
+}
+
+.card-inner:hover .card__button svg {
+  animation: pulse-button 1.5s infinite;
+}
+
+/* Animations */
+@keyframes shine-effect {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+@keyframes pulse-button {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+.container-cards{
+  padding: 3rem;
+  height: 100dvh;
+  justify-content: center;
+  background-image: url('https://ebike.es/wp-content/uploads/2023/09/ROTWILD_RX275_PRO_7699_1920x1920.jpg');
+
+}
+
+.container-cards h2{
+margin-top: 1rem;
+font-family: "Spaceport";
+color: white;
+text-align: center;
+}
+
+
+.tarjetas {
+  margin-top: 2rem;
+  padding: 3rem 5rem;
+  display: flex;
+  gap: 7rem;
+  justify-content: start;
+  overflow-y: scroll;
+
+  background: rgba(145, 143, 143, 0.065);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 12px;
+}
+
+
+
+
+
+
+.carousel-container {
+  position: relative;
+  width: 90%;
+  max-width: 900px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.carousel-wrapper {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.carousel-slide {
+  flex: 0 0 auto;
+  width: 300px;
+  margin: 0 10px;
+  scroll-snap-align: start;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+}
+
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2em;
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  cursor: pointer;
+  z-index: 2;
+  padding: 0 10px;
+  border-radius: 50%;
+}
+
+.nav.left { left: 10px; }
+.nav.right { right: 10px; }
+
+.nav:hover {
+  background: rgba(0,0,0,0.8);
+}
+
+.carousel-wrapper{
+  width: fit-content;
+  height: fit-content;
+  background: rgba(145, 143, 143, 0.065);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 12px;
+display: flex;
+justify-content: start;
+align-content: center;
+align-items: center;
+
+
+}
+
+.carousel-slide{
+  /* border: 1px solid rgb(0, 255, 136); */
+  width: 100%;
+
+}
+/* box-shadow: 0 30px 60px rgba(244, 238, 238, 0.704); ; */
+
+.carousel-slide img{
+  /* border: 1px solid rgb(0, 255, 136); */
+  height: 100%;
+}
+
+.rotated-text {
+  position: absolute;   /* permite moverlo libremente */
+  bottom: 20px;         /* distancia desde abajo */
+  left: 20px;           /* distancia desde la izquierda */
+
+  display: inline-block;
+  transform: rotate(-90deg); /* gira 90 grados */
+  transform-origin: left bottom;
+  margin: 3rem;
+  font-family: "Spaceport";
+  font-size: 2rem;
+  color: white;
+  letter-spacing: 3px;
+}
+
+
+.estaciones{
+  /* border: 1px solid red; */
+  padding-top: 0px;
+  justify-content: center;
+  align-items: end;
+  align-content: end;
+}

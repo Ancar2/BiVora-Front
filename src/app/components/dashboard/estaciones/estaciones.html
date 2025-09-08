@@ -1,0 +1,88 @@
+<div class="container-cards ">
+  <h2>BICICLEtAS</h2>
+
+  <div>
+
+
+
+
+    <div class="carousel-container">
+      <button class="nav left"
+        onclick="document.querySelector('.carousel-wrapper').scrollBy({ left: -320, behavior: 'smooth' })">‹</button>
+
+      <div class="carousel-wrapper">
+        @for (item of bicicletas; track $index) {
+        <div class="carousel-slide">
+          <div class="card-container">
+            <div class="card-inner-g">
+              <div class="card__liquid"></div>
+              <div class="card__shine"></div>
+              <div class="card__glow"></div>
+              <div class="card__content">
+                <div class="card__badge">ID: {{item._id}}</div>
+                <div class="card_image-g">
+                  <img src="{{item.img}}" alt="">
+                </div>
+                <div class="card__footer">
+                  <div class="card__price">Serial: {{item.serial}}<br>Estado: {{item.estado}}</div>
+                  <div (click)="obtenerBiciId(item._id)" class="card__button-g" routerLink="/dashboard/alquiler">
+                    ALQUILAR
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        }
+      </div>
+
+
+      <button class="nav right"
+        onclick="document.querySelector('.carousel-wrapper').scrollBy({ left: 320, behavior: 'smooth' })">›</button>
+    </div>
+
+  </div>
+
+
+  <div class="estaciones">
+
+
+    <div class="tarjetas">
+      <p class="rotated-text">EStACIONES</p>
+
+
+      @for (item of estaciones; track $index) {
+
+      <div (click)="obtenerEstacion(item._id)" (click)="renderBici(item.bicicletas)" class="card-container">
+        <div class="card-effect">
+          <div class="card-inner">
+            <div class="card__liquid"></div>
+            <div class="card__shine"></div>
+            <div class="card__glow"></div>
+            <div class="card__content">
+              <div class="card__badge">ID: {{item._id}}</div>
+              <!-- <img class="card__image" src="{{item.imagen}}" alt=""> -->
+              <div class="card__image justify-content-center d-flex pt-4 fs-5">
+                <p class="card__title">{{item.nombre}}</p>
+              </div>
+              <div class="card__text">
+                <p class="card__description">Direccion: {{item.ubicacion.direccion}}</p>
+                <p class="card__description">Latitud: {{item.ubicacion.latitud}}</p>
+                <p class="card__description">Longitud: {{item.ubicacion.longitud}}</p>
+              </div>
+              <div class="card__footer">
+                <div class="card__price">Disponibles: {{item.bicicletasDisponibles}}</div>
+                <div class="card__button">
+                  ir
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      }
+    </div>
+  </div>
+
+</div>

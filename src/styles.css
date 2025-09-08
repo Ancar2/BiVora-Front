@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+ :root{
+    --bg:#0c0b0b;
+    --card:rgba(0, 42, 255, 0.124);
+    --stroke:rgba(255,255,255,.12);
+    --white:#ffffff;
+    --muted:#c8c8cc;
+    --orange:#ff7a18;
+    --orange-2:#ff9f1a;
+    --fontKTM: 'spaceport';
+    --sombra: 0px 20px 60px rgb(0, 0, 0),
+      inset 0 0 0 1px rgb(140, 140, 140);
+  }
+
+    @font-face {
+  font-family: "Spaceport";
+  src: url("/Spaceport1i.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --color-primary: #18181A;
+  --color-secondary: #75757C;
+  --color-dark: #364C62;
+  --color-light: #F5F5F5;
+  --font-family-primary: 'Roboto Mono', monospace;
+  --font-family-secondary: 'Rubik Mono One', sans-serif;
+
+  /* // Global transition values */
+  --td: 150ms;
+  --te: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+
+
+
