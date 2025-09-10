@@ -103,3 +103,13 @@ span{
   font-family: 'Courier New', Courier, monospace;
   font-size: 1.5rem;
 }
+
+.cont_bici {
+  display: flex;
+  flex-direction: column;
+}
+
+.cont_bici p{
+  margin: 1rem;
+  padding: 0px;
+}

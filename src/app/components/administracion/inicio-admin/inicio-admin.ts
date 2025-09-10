@@ -16,6 +16,8 @@ export class InicioAdmin {
   serviceUser = inject(UserService)
   serviceAlquiler = inject(AlquilerService)
 
+  bicisEnMantenimiento: number = 0;
+  bicisAlquiladas: number = 0;
   bicisDisponibles: number = 0;
   bicicletas: any[] = [];
 
@@ -43,6 +45,15 @@ export class InicioAdmin {
           if (this.bicicletas[i].estado == 'disponible') {
             this.bicisDisponibles++;
           }
+          if(this.bicicletas[i].estado == 'alquilada'){
+            this.bicisAlquiladas++
+          }
+
+          if(this.bicicletas[i].estado == 'mantenimiento'){
+            this.bicisEnMantenimiento ++
+          }
+
+
         }
         console.log("Total disponibles:", this.bicisDisponibles);
 

@@ -75,5 +75,10 @@
 }
 
 .contenido{
-  margin-left: 15rem;
+  margin-left: 18rem;
+}
+
+
+.activa{
+  background: rgb(255, 68, 0);
 }

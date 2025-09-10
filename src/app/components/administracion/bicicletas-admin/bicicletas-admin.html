@@ -1,0 +1,111 @@
+<div class="body">
+
+  <button class="nuevo-button" data-bs-toggle="modal" data-bs-target="#exampleModal">CrEAr NUEVA BICICLEtA
+    <span>+</span></button>
+
+  <div class="carousel-container">
+    <button class="nav left"
+      onclick="document.querySelector('.carousel-wrapper').scrollBy({ left: -320, behavior: 'smooth' })">🔙</button>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">CrEAr BICICLEtA</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+
+
+            <form [formGroup]="formBici" class="form">
+              <ul class="wrapper">
+
+
+                <li style="--i:4;"><input formControlName="serial" class="input" type="text" placeholder="Serial"
+                    required=""></li>
+                <li style="--i:3;"><input formControlName="img" class="input" placeholder="Imagen URL" required=""></li>
+                <!-- <li style="--i:2;"><input formControlName="estacion" class="input" placeholder="Estacion" required=""
+                    ></li> -->
+                <li style="--i:2;">
+                  <input formControlName="estacion" class="input" placeholder="Estacion" list="listaEstaciones"
+                    required>
+                  <datalist id="listaEstaciones">
+                    @for (estacion of estaciones; track $index) {
+                     <option>{{estacion.nombre}}</option>
+                    }
+                  </datalist>
+                </li>
+                <li style="--i:1;"><input formControlName = "estado"  class="input"  placeholder="Estado" required="" name="estado"></li>
+
+
+
+
+
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <!-- @if (drop) { -->
+                   @if (drop) {
+                <button (click)="bicicletaCreate()" data-bs-dismiss="modal" type="button"
+                    class="btn btn-primary">CrEAr</button>
+              }@else {
+                <button (click)="guardarEditado()" data-bs-dismiss="modal" type="button" class="btn btn-primary">Editar</button>
+              }
+
+                  <!-- }@else {
+                <button data-bs-dismiss="modal" type="button" class="btn btn-primary">Editar</button>
+              } -->
+                </div>
+              </ul>
+
+            </form>
+
+
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="carousel-wrapper">
+      @for (item of bicicletas; track $index; let i = $index) {
+      <div class="carousel-slide">
+        <div class="card-container">
+          <div class="card-inner-g">
+            <div class="card__liquid"></div>
+            <div class="card__shine"></div>
+            <div class="card__glow"></div>
+            <div class="card__content">
+              <div class="numero">N. {{i + 1}} / {{bicicletas.length}}</div>
+              <div class="card__badge">ID: {{item._id}}</div>
+              <div class="card_image-g">
+                <img src="{{item.img}}" alt="">
+              </div>
+              <div class="card__footer">
+                <div class="card__price">Serial: {{item.serial}}<br>Estado: {{item.estado}} <br>Estacion:
+                  {{item.estacion.nombre}}</div>
+                <div class="botones">
+                  <div (click)="editarBici(item._id)" data-bs-toggle="modal" data-bs-target="#exampleModal" class="card__button-g" routerLink="/dashboard/alquiler">
+                    EDItAr
+                  </div>
+                  <div (click)="eliminarBici(item._id)" class="card__button-g" routerLink="/dashboard/alquiler">
+                    ELIMINAr
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      }
+    </div>
+
+
+    <button class="nav right"
+      onclick="document.querySelector('.carousel-wrapper').scrollBy({ left: 320, behavior: 'smooth' })">🔜</button>
+  </div>
+
+</div>

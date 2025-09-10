@@ -7,6 +7,8 @@ import { Alquiler } from './components/alquiler/alquiler';
 import { Register } from './components/register/register';
 import { Administracion } from './components/administracion/administracion';
 import { InicioAdmin } from './components/administracion/inicio-admin/inicio-admin';
+import { EstacionesAdmin } from './components/administracion/estaciones-admin/estaciones-admin';
+import { BicicletasAdmin } from './components/administracion/bicicletas-admin/bicicletas-admin';
 
 export const routes: Routes = [
   {
@@ -54,6 +56,14 @@ export const routes: Routes = [
       {
         path: 'inicio',
         component: InicioAdmin
+      },
+      {
+        path: 'estaciones',
+        component: EstacionesAdmin
+      },
+       {
+        path: 'bicicletas',
+        component: BicicletasAdmin
       },
     ]
   },

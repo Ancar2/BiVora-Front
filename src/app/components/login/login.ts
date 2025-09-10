@@ -1,8 +1,9 @@
 import { Component, inject } from '@angular/core';
 import { LoginService } from '../../services/auth/login/login.service';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import flashy from '@pablotheblink/flashyjs';
+import { TokenService } from '../../services/auth/token/token.service';
 
 @Component({
   selector: 'app-login',
@@ -12,13 +13,21 @@ import flashy from '@pablotheblink/flashyjs';
 })
 export class Login {
   loginService = inject(LoginService)
+  tokenService = inject (TokenService)
   formLogin!: FormGroup
 
-  constructor(private fb: FormBuilder){
+
+  constructor(private fb: FormBuilder, private router: Router ){
     this.formLogin = fb.group ({
       correo:['', [Validators.required, Validators.email]],
        password: ['', [Validators.required, Validators.minLength(6)]],
     })
+  }
+
+role = this.tokenService.getFromToken('role')
+
+  ngOnInit(){
+    console.log(this.role);
   }
 
   login(){
@@ -41,7 +50,7 @@ export class Login {
               console.log('Notificación clickeada');
             },
             onClose: () => {
-              // this.router.navigate(['//']);
+              this.router.navigate(['/dashboard']);
             },
           });
         },

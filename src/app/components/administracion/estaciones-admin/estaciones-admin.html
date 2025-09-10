@@ -1,0 +1,90 @@
+<button class="nuevo-button" data-bs-toggle="modal" data-bs-target="#exampleModal">CrEAr NUEVA ESTACION <span>+</span></button>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">CrEAr ESTACION</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+
+        <form [formGroup]="formEstacion" class="form">
+          <ul class="wrapper">
+
+
+            <li style="--i:4;"><input formControlName = "nombre" class="input" type="text" placeholder="Nombre" required=""></li>
+            <li style="--i:3;"><input formControlName = "direccion" class="input" placeholder="Direccion" required="" name="direccion"></li>
+            <li style="--i:2;"><input formControlName = "latitud" class="input"  placeholder="Latitud" required="" name="latitud"></li>
+            <li style="--i:1;"><input formControlName = "longitud"  class="input"  placeholder="Longitud" required="" name="latitud"></li>
+
+
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              @if (drop) {
+                <button data-bs-dismiss="modal" (click)="estacionCreate()" type="button" class="btn btn-primary">CrEAr</button>
+              }@else {
+                <button (click)="guardarEditado()" data-bs-dismiss="modal" type="button" class="btn btn-primary">Editar</button>
+              }
+            </div>
+          </ul>
+
+        </form>
+
+
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="contenido-cards">
+
+@for (item of estaciones; track $index) {
+
+  @if (item.activo== true) {
+
+<div class="card-container">
+  <div class="card-effect">
+    <div class="card-inner">
+      <div class="card__liquid"></div>
+      <div class="card__shine"></div>
+      <div class="card__glow"></div>
+      <div class="card__content">
+        <div class="card__badge">{{item._id}}</div>
+        <!-- <img class="card__image" src="{{item.imagen}}" alt=""> -->
+        <div class="card__image justify-content-center d-flex pt-4 fs-5">
+          <p class="card__title">{{item.nombre}}</p>
+        </div>
+        <div class="card__text">
+          <p class="card__description">Direccion: {{item.ubicacion.direccion}}</p>
+          <p class="card__description">Latitud: {{item.ubicacion.latitud}}</p>
+          <p class="card__description">Longitud: {{item.ubicacion.longitud}}</p>
+        </div>
+        <div class="card__footer">
+          <div class="card__price">Bicicletas: {{item.bicicletasDisponibles}}</div>
+
+          <div>
+          <div (click)="eliminarEstacion(item._id)" class="card__button">
+            Eliminar
+          </div>
+          <div (click)="editarEstacion(item._id)" data-bs-toggle="modal" data-bs-target="#exampleModal" class="card__button">
+            Editar
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+}
+
+}
+</div>

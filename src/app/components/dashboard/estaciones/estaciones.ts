@@ -15,8 +15,8 @@ import { RouterLink } from '@angular/router';
 export class Estaciones {
   estacionService = inject(EstacionesService)
   alquilerService = inject(AlquilerService)
-  estaciones!: any[]
 
+  estaciones!: any[]
   bicicletas!: any[]
   estacionId!: any
   biciId!: any
