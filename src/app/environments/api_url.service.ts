@@ -1,3 +1,3 @@
 export enum ApiUrl {
-    url = 'http://18.189.26.135:3000/api'
+    url = 'http://3.19.60.135/BiVora/api'
 }
